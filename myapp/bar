@@ -1,0 +1,30 @@
+<!-- Place this form block inside your existing Bootstrap template layout -->
+<form action="{% url 'home' %}" method="GET" class="d-flex flex-column w-100" style="max-width: 400px; margin: 20px auto;">
+    
+    <!-- Bootstrap Alert: Appears automatically if a searched ID does not exist -->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-danger py-2 px-3 mb-2 small" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <!-- Bootstrap Input Group Component -->
+    <div class="input-group">
+        <input 
+            type="number" 
+            name="q" 
+            class="form-control" 
+            placeholder="Search Seller ID..." 
+            aria-label="Search Seller ID"
+            min="1" 
+            required
+        >
+        <button class="btn btn-primary" type="submit">
+            Search
+        </button>
+    </div>
+</form>
+
+<i class="bi bi-graph-up-arrow text-primary display-1 mb-3"></i>
