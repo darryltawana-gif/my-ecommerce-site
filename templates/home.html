@@ -1,55 +1,101 @@
-{%load static%}
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Real identity</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-
-  <!-- Favicons -->
-  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
-  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
-
-  <!-- Fonts -->
-  <link href="{% static 'https://fonts.googleapis.com' %}" rel="preconnect">
-  <link href="{% static 'https://fonts.gstatic.com' %}" rel="preconnect" crossorigin>
-  <link href="{% static 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap' %}" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
-
-  <!-- Main CSS File -->
-  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: MyPage
-  * Template URL: https://bootstrapmade.com/mypage-bootstrap-personal-template/
-  * Updated: Sep 20 2025 with Bootstrap v5.3.8
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Identity - Verified Service Providers</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .hero-section {
+            padding: 90px 0 60px 0;
+        }
+        .brand-text {
+            color: #38bdf8;
+        }
+        .card-custom {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            color: #f8fafc;
+            border-radius: 12px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .card-custom:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        .profile-img {
+            height: 220px;
+            object-fit: cover;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+        .badge-verified {
+            background-color: #0284c7;
+            color: #ffffff;
+            font-size: 0.8rem;
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+    </style>
 </head>
+<body>
 
-<body class="index-page">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3 border-bottom border-secondary">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4 d-flex align-items-center" href="{% url 'home' %}">
+                <i class="bi bi-shield-check brand-text me-2 fs-3"></i>
+                Real <span class="brand-text">Identity</span>
+            </a>
+            <div class="ms-auto d-flex gap-3 align-items-center">
+                <a href="#contact-section" class="btn btn-outline-info btn-sm">Contact Support</a>
+                <span class="badge badge-verified d-none d-sm-inline-block">
+                    <i class="bi bi-patch-check-fill me-1"></i> Official Identity Portal
+                </span>
+            </div>
+        </div>
+    </nav>
 
-  <header id="header" class="header dark-background d-flex flex-column justify-content-between">
- 
+    <!-- Django Flash Messages Container -->
+    <div class="container mt-3">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags|default:'info' }} alert-dismissible fade show mb-0" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
 
-  </header>
+    <!-- Main Hero Section -->
+    <div class="container hero-section text-center">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <h1 class="display-4 fw-bold mb-3">
+                    Welcome to <span class="brand-text">REAL IDENTITY</span>
+                </h1>
+                <p class="lead text-light opacity-75 mb-4 px-md-5">
+                    We provide full identity verification for trusted service providers and professionals. Fast, secure, and authenticated credentials for modern transactions.
+                </p>
 
-  <main class="main">
-
-    <!-- Hero Section -->
-<!-- Place this form block inside your existing Bootstrap template layout -->
-<form action="{% url 'home' %}" method="GET" class="d-flex flex-column w-100" style="max-width: 400px; margin: 20px auto;">
+                <!-- ==================================================== -->
+                <!-- PLACE YOUR SEARCH BAR CODE HERE IN THIS BLOCK        -->
+                <!-- ==================================================== -->
+                <div class="my-5 p-4 border border-dashed border-secondary rounded-3 bg-dark">
+                    <p class="text-muted m-0"><em><form action="{% url 'home' %}" method="GET" class="d-flex flex-column w-100" style="max-width: 400px; margin: 20px auto;">
     
     <!-- Bootstrap Alert: Appears automatically if a searched ID does not exist -->
     {% if messages %}
@@ -61,25 +107,12 @@
     {% endif %}
 
     <!-- Bootstrap Input Group Component -->
-
-
-
-     WELCOME TO THE REAL IDENTITY 
-
-       We provide full identity of trusted individuals who provide services for money.
-
-
-
-
-
-
-
     <div class="input-group">
         <input 
             type="number" 
             name="q" 
             class="form-control" 
-            placeholder="Search their ID here..." 
+            placeholder="Search Seller ID..." 
             aria-label="Search Seller ID"
             min="1" 
             required
@@ -88,207 +121,120 @@
             Search
         </button>
     </div>
-</form>
-
-
-
-
-    <section id="hero" class="hero section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row align-items-center">
-          <div class="col-lg-6 order-2 order-lg-1">
-            <div class="hero-content">
-              <h1 data-aos="fade-up" data-aos-delay="200">
-                 Please click the "know Us" button before starting!!! &amp;
-                <span class="accent-text">and read it.</span>
-              </h1>
-              <p class="hero-description" data-aos="fade-up" data-aos-delay="300">
-                The real identity helps you to meet trusted individuals in business , before anything else ,first check the person if they are listed and verified here.</p>
-              <div class="hero-actions" data-aos="fade-up" data-aos-delay="400">
-                <a href="#portfolio" class="btn-primary">Know Us (click here)</a>
-                <a href="#contact" class="btn-secondary">Click for our contacts</a>
-              </div>
-              <div class="hero-stats" data-aos="fade-up" data-aos-delay="500">
-                <div class="stat-item">
-                  <span class="stat-number"></span>
-                  <span class="stat-label">Know </span>
+</form></em></p>
                 </div>
-                <div class="stat-item">
-                  <span class="stat-number">who </span>
-                  <span class="stat-label">to trust</span>
-                </div>
-                <div class="stat-item">
-                  <span class="stat-number"></span>
-                  <span class="stat-label">in everything.</span>
-                </div>
-              </div>
+                <!-- ==================================================== -->
+
             </div>
-          </div>
+        </div>
+    </div>
 
-          <div class="col-lg-6 order-1 order-lg-2">
-            <div class="hero-image" data-aos="fade-up" data-aos-delay="300">
-              <div class="image-wrapper">
-                <img src="{% static 'assets/img/portfolio/portfolio-portrait-3.webp' % }"alt="Creative Designer Portfolio" class="img-fluid main-image">
-                <div class="floating-card card-1" data-aos="fade-up" data-aos-delay="600">
-                  <i class="bi bi-palette"></i>
-                  <span>Take the id from seller</span>
-                </div>
-                <div class="floating-card card-2" data-aos="fade-up" data-aos-delay="700">
-                  <i class="bi bi-code-square"></i>
-                  <span>Put on search bar</span>
-                </div>
-                <div class="floating-card card-3" data-aos="fade-up" data-aos-delay="800">
-                  <i class="bi bi-camera"></i>
-                  <span>Search</span>
-                </div>
-              </div>
-            </div>
-          </div>
+    <!-- Featured Verified Service Providers Section -->
+    <div class="container mb-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="fw-bold m-0"><i class="bi bi-people-fill brand-text me-2"></i>Recently Verified Service Providers</h3>
+            <span class="text-muted small">Updated Live</span>
         </div>
 
-      </div>
-
-    </section><!-- /Hero Section -->
-
-    <!-- About Section -->
-    <section id="about" class="about section">
-
-     
-
-    </section><!-- /About Section -->
-
-    <!-- Stats Section -->
-    
-
-      </div>
-
-    </section><!-- /Stats Section -->
-
-    <!-- Skills Section -->
-    
+        <div class="row g-4">
+            <!-- Individual Profile Card 1 -->
+            <div class="col-md-4">
+                <div class="card card-custom h-100">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" class="card-img-top profile-img" alt="Verified Individual">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge bg-success"><i class="bi bi-check-circle-fill me-1"></i> ID Verified</span>
+                            <small class="text-muted">ID: #RID-84920</small>
+                        </div>
+                        <h5 class="card-title fw-bold mb-1">Sarah Jenkins</h5>
+                        <p class="brand-text small mb-2">Independent Financial Consultant</p>
+                        <p class="card-text text-muted small">Verified identity and legal background clearance completed for commercial operations.</p>
+                    </div>
+                </div>
             </div>
-          </div>
+
+            <!-- Individual Profile Card 2 -->
+            <div class="col-md-4">
+                <div class="card card-custom h-100">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" class="card-img-top profile-img" alt="Verified Individual">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge bg-success"><i class="bi bi-check-circle-fill me-1"></i> ID Verified</span>
+                            <small class="text-muted">ID: #RID-10482</small>
+                        </div>
+                        <h5 class="card-title fw-bold mb-1">David Kwame</h5>
+                        <p class="brand-text small mb-2">IT & Systems Specialist</p>
+                        <p class="card-text text-muted small">Full identity clearance and credential validation stored in secure ledger.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Individual Profile Card 3 -->
+            <div class="col-md-4">
+                <div class="card card-custom h-100">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" class="card-img-top profile-img" alt="Verified Individual">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge bg-success"><i class="bi bi-check-circle-fill me-1"></i> ID Verified</span>
+                            <small class="text-muted">ID: #RID-93011</small>
+                        </div>
+                        <h5 class="card-title fw-bold mb-1">Elena Rostova</h5>
+                        <p class="brand-text small mb-2">Legal & Advisory Services</p>
+                        <p class="card-text text-muted small">Verified personal records and registered business identity on active record.</p>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
 
-      </div>
-
-
-
-
-
-
-
-
-
-    </section><!-- /Skills Section -->
-
-    <!-- Resume Section -->
-           </div>
-
-      </div>
-
-    </section><!-- /Resume Section -->
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>About Us And Our Purpose</h2>
-        <p>Since the introduction of  the online world ,it has been difficult to know who is behind the door and to trust them ,as a customer you are prone to be scammed , lied to and be cheated online , we are the bridge between you and the other person.
-                We want you to know if your seller or anyone providing a service to you is selling or providing genuine and real things before you trust them.
-                We verify individuals fully using proper protocols ,list them ,and provide you with information to let you know if they are trusted.
-                We provide trade assurance- a trusted account will be later introduced specifically for handling your transactions, if a seller brings you wrong products or service within 2 days of checking ,you will receive your money,so the account holds the money between you and seller,so you will first send your money to the trusted account to reduce being scammed easily.(We will notify you when we are going to introduce this trade assurance!)
-                We act as the bidge between you and the other person ,we check if the person providing any service is true and is really providing their stated services.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-       </div><!-- End Portfolio Item -->
-
-          </div><!-- End Portfolio Container -->
-
+    <!-- How It Works Section -->
+    <div class="bg-dark py-5 my-4 border-top border-bottom border-secondary">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h3 class="fw-bold">How Real Identity Works</h3>
+                <p class="text-muted">Ensuring trust and security across client interactions in 3 easy steps</p>
+            </div>
+            <div class="row text-center g-4">
+                <div class="col-md-4">
+                    <div class="p-3">
+                        <i class="bi bi-card-heading brand-text fs-1 mb-3"></i>
+                        <h5 class="fw-bold">1. Ask for Their ID</h5>
+                        <p class="text-muted small">Request the official Real Identity code from the service provider you are dealing with.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3">
+                        <i class="bi bi-search brand-text fs-1 mb-3"></i>
+                        <h5 class="fw-bold">2. Search the Database</h5>
+                        <p class="text-muted small">Enter their ID code into our system to fetch their live authenticated profile records.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3">
+                        <i class="bi bi-shield-check text-success fs-1 mb-3"></i>
+                        <h5 class="fw-bold">3. Deal with Confidence</h5>
+                        <p class="text-muted small">Confirm that the person you are paying matches the authenticated seller in our database.</p>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
 
-      </div>
+    <!-- Contact Form Section -->
+    <div id="contact-section" class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="text-center mb-4">
+                        <h3 class="fw-bold"><i class="bi bi-envelope-check brand-text me-2"></i>Contact Real Identity Support</h3>
+                        <p class="text-muted">Have questions or need assistance with identity verification?</p>
+                    </div>
 
-    </section><!-- /Portfolio Section -->
-
-    <!-- Services Section -->
-    
-
-      </div>
-
-    </section><!-- /Testimonials Section -->
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>These  details  represent the team behind , its a pleasure to communicate with you .</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-5">
-
-            <div class="info-item">
-              <div class="info-icon">
-                <i class="bi bi-chat-dots"></i>
-              </div>
-              <div class="info-content">
-                <h4>Let's Connect</h4>
-                <p>We're available for you always</p>
-              </div>
-            </div>
-
-            <div class="contact-details">
-
-              <div class="detail-item">
-                <div class="detail-icon">
-                  <i class="bi bi-envelope-open"></i>
-                </div>
-                <div class="detail-content">
-                  <span class="detail-label">Whatsapp</span>
-                  <span class="detail-value">0778 786 850 /0787 058 742</span>
-                </div>
-              </div>
-
-              <div class="detail-item">
-                <div class="detail-icon">
-                  <i class="bi bi-telephone-outbound"></i>
-                </div>
-                <div class="detail-content">
-                  <span class="detail-label">Call us </span>
-                  <span class="detail-value">0778 786 850 </span>
-                </div>
-              </div>
-
-              <div class="detail-item">
-                <div class="detail-icon">
-                  <i class="bi bi-geo-alt-fill"></i>
-                </div>
-                <div class="detail-content">
-                  <span class="detail-label">Location to verify</span>
-                  <span class="detail-value">Any area(some distances are to be discussed between us and seller)<br></span>
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="col-lg-7">
-            <div class="form-wrapper">
-              <div class="form-header">
-                <h3>Send us a message of anything such as your dislikes in the service we provide etc</h3>
-              </div>
-
-               <form action="{% url 'contact' %}" method="post">
+                    <!-- ==================================================== -->
+                    <!-- PLACE YOUR CONTACT FORM CODE HERE IN THIS BLOCK       -->
+                    <!-- ==================================================== -->
+                    <div class="p-5 border border-dashed border-secondary rounded-3 card-custom text-center">
+                        <p class="text-muted m-0"><em><form action="{% url 'contact' %}" method="post">
     {% csrf_token %}
     
     <div class="row">
@@ -306,71 +252,34 @@
         </div>
     </div>
 
-    <div class="form-group mt-3">
+    <div class="form-group">
         <label>Subject</label>
         <input type="text" name="subject" required class="form-control">
     </div>
 
-    <div class="form-group mt-3">
+    <div class="form-group">
         <label>Message</label>
-        <textarea name="message" rows="5" required class="form-control"></textarea>
+        <textarea name="message" required class="form-control" rows="5"></textarea>
     </div>
 
     <button type="submit" class="btn btn-primary mt-3">Send Message</button>
-</form> 
+</form></em></p>
+                    </div>
+                    <!-- ==================================================== -->
 
+                </div>
             </div>
-
-          </div>
-
         </div>
-      </div>
-
-    </section><!-- /Contact Section -->
-
-  </main>
-
-  <footer id="footer" class="footer light-background">
-    <div class="container">
-      <h3 class="sitename">Real identity</h3>
-      <p>Always send a message on the above form regarding your dislikes on the services we provided to you if any.</p>
-      
-      <div class="container">
-        <div class="copyright">
-          <span>The</span> <strong class="px-1 sitename">Real identity</strong> <span>building trust</span>
-        </div>
-        <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you've purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-         
-        </div>
-      </div>
     </div>
-  </footer>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Footer -->
+    <footer class="text-center py-4 text-muted mt-auto border-top border-secondary">
+        <div class="container">
+            <small>&copy; 2026 Real Identity. All rights reserved.</small>
+        </div>
+    </footer>
 
-  
-  
-
-  <!-- Vendor JS Files -->
-  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
-  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
-  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
-  <script src="{% static 'assets/vendor/typed.js/typed.umd.js' %}"></script>
-  <script src="{% static 'assets/vendor/waypoints/noframework.waypoints.js' %}"></script>
-  <script src="{% static 'assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
-
-  <!-- Main JS File -->
-  <script src="{% static 'assets/js/main.js' %}"></script>
-
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
