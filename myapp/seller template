@@ -30,3 +30,5 @@
 
 </body>
 </html>
+
+<a href="{% url 'home' %}" class="btn btn-outline-secondary btn-sm">← Back to Search</a>
