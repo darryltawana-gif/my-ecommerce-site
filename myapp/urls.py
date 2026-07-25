@@ -8,4 +8,6 @@ urlpatterns = [
     
     # Dynamic route for viewing a seller profile (e.g., /seller/5/)
     path('seller/<int:seller_id>/', views.seller_detail, name='seller_detail'),
+
+    path('contact/', views.contact_view, name='contact'),
 ]

@@ -2,6 +2,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from .models import Seller
+from .models import ContactMessage
 
 def home(request):
     """Processes search bar text and redirects to the correct profile."""
@@ -27,3 +28,24 @@ def seller_detail(request, seller_id):
     seller = get_object_or_404(Seller, id=seller_id)
     return render(request, 'seller_detail.html', {'seller': seller})
 # Create your views here.
+
+
+def contact_view(request):
+    if request.method == "POST":
+        full_name = request.POST.get("name")
+        email = request.POST.get("email")
+        subject = request.POST.get("subject")
+        message = request.POST.get("message")
+
+        # Save to database
+        ContactMessage.objects.create(
+            full_name=full_name,
+            email=email,
+            subject=subject,
+            message=message
+        )
+        
+        messages.success(request, "Your message has been sent successfully!")
+        return redirect('contact')
+
+    return render(request, 'home.html')
