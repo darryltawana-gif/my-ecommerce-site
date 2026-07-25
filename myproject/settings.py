@@ -141,12 +141,21 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-# Supabase S3 Storage Configuration
-AWS_ACCESS_KEY_ID = ' aec52ef134ea0ddbb3db948bd1e7dfd6'
+# Supabase S3 Storage Settings
+AWS_ACCESS_KEY_ID = 'aec52ef134ea0ddbb3db948bd1e7dfd6'
 AWS_SECRET_ACCESS_KEY = '12ffe469b848fcbdb2c8ca504d4543ba754b2b3f5c205cd78eb5667496413542'
 AWS_STORAGE_BUCKET_NAME = 'seller-evidence'
 AWS_S3_ENDPOINT_URL = 'https://rtaqwuiszyxhadxanosi.supabase.co/storage/v1/s3'
 AWS_S3_REGION_NAME = 'eu-west-2'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
 
-# Tells Django to use Supabase S3 for all uploaded user media files
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# Configure Django Storage Backends (Django 4.2+)
+STORAGES = {
+    "default": {
+        "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+    },
+}
