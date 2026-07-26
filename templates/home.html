@@ -53,6 +53,43 @@
             border-radius: 20px;
         }
     </style>
+    <style>
+    /* 1. GLOBAL INPUTS & TEXTAREAS (Fixes search bars, message boxes, form fields) */
+    input, 
+    textarea, 
+    select, 
+    .form-control {
+        color: #0f172a !important;
+        -webkit-text-fill-color: #0f172a !important;
+        background-color: #ffffff !important;
+    }
+
+    /* 2. PLACEHOLDERS */
+    input::placeholder, 
+    textarea::placeholder {
+        color: #64748b !important;
+        -webkit-text-fill-color: #64748b !important;
+        opacity: 1 !important;
+    }
+
+    /* 3. ALERTS, POP-UPS, TOOLTIPS & MESSAGES (Fixes pop-up messages) */
+    .alert, 
+    .tooltip, 
+    .popover, 
+    .invalid-feedback, 
+    .valid-feedback,
+    [role="alert"] {
+        color: #0f172a !important;
+        -webkit-text-fill-color: #0f172a !important;
+    }
+
+    /* 4. FORCE BROWSER-NATIVE POP-UPS (HTML5 validation pop-ups) */
+    ::-webkit-validation-bubble-message {
+        color: #0f172a !important;
+        background-color: #ffffff !important;
+    }
+</style>
+</head>
 </head>
 <body>
 
