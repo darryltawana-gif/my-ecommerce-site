@@ -132,39 +132,37 @@
                     We verify and list wheather anyone providing a service to you is real,providing genuine things and we obtain evidence for you.These are the service providers we physically meet and check if their services are real and genuine. This is the ocean of trusted people because the online world is full of tricks,scams and things that can lie to your eyes.Trade assurance will later be introduced  to avoid the person from disappearing with your money .Our contacts for whatsapp and calls are 0778786850 and whatsapp only is 0787058742.In case you wonder the person behind the platform,the original identity of the person is clear for you to know and search ,just search the ID number 1 ,the person behind this platform is Darryl T Kadada .In the business world, before dealing with the other person first check them here.
                 </p>
 
-                <!-- ==================================================== -->
-                <!-- PLACE YOUR SEARCH BAR CODE HERE IN THIS BLOCK        -->
-                <!-- ==================================================== --I
-                <div class="my-5 p-4 border border-dashed border-secondary rounded-3 bg-dark">
-                    <p class="text-muted m-0"><em><form action="{% url 'home' %}" method="GET" class="d-flex flex-column w-100" style="max-width: 400px; margin: 20px auto;">
-    
-    <!-- Bootstrap Alert: Appears automatically if a searched ID does not exist -->
-    {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-danger py-2 px-3 mb-2 small" role="alert">
-                {{ message }}
-            </div>
-        {% endfor %}
-    {% endif %}
+<!-- ============================================= -->
+<!-- PLACE YOUR SEARCH BAR CODE HERE IN THIS BLOCK -->
+<!-- ============================================= -->
 
-    <!-- Bootstrap Input Group Component -->
-    <div class="input-group">
+<!-- Django Messages Display -->
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-danger py-2 px-3 mb-3 text-start small" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+<!-- Modern Working Search Bar -->
+<form action="{% url 'home' %}" method="GET" class="my-4">
+    <div class="input-group input-group-lg shadow-sm">
         <input 
             type="number" 
             name="q" 
-            class="form-control" 
-            placeholder="Search the ID they gave you..." 
-            aria-label="Search Seller ID"
+            class="form-control bg-white text-dark border-0 fs-6" 
+            placeholder="Enter the ID they gave you..." 
+            aria-label="Search Seller ID" 
             min="1" 
-            required
-        >
-        <button class="btn btn-primary" type="submit">
+            required>
+        <button class="btn btn-primary px-4 fw-semibold" type="submit">
             Search
         </button>
     </div>
-</form></em></p>
-                </div>
-                <!-- ==================================================== -->
+</form>
+
+<!-- ============================================= -->
 
             </div>
         </div>
